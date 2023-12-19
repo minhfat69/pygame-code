@@ -54,7 +54,7 @@ pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512)
 pygame.init()
 screen= pygame.display.set_mode((432,768))
 clock = pygame.time.Clock()
-game_font = pygame.font.Font('C:\\Users\\Admin\\OneDrive - ut.edu.vn\\Documents\\pygame\\game1\\04B_19.TTF',35)
+game_font = pygame.font.Font('04B_19.TTF',35)
 #Tạo các biến cho trò chơi
 gravity = 0.2
 bird_movement = 0
@@ -63,19 +63,19 @@ score = 0
 high_score = 0
 #set caption va icon game
 pygame.display.set_caption('vkl luon')
-icon=pygame.image.load(r'game1/assets/yellowbird-midflap.png')
+icon=pygame.image.load(r'assets/yellowbird-midflap.png')
 pygame.display.set_icon(icon)
 #chèn background
-bg = pygame.image.load('game1/assets/background-night.png').convert()
+bg = pygame.image.load('assets/background-night.png').convert()
 bg = pygame.transform.scale2x(bg)
 #chèn sàn
-floor = pygame.image.load('game1/assets/floor.png').convert()
+floor = pygame.image.load('assets/floor.png').convert()
 floor = pygame.transform.scale2x(floor)
 floor_x_pos = 0
 #tạo chim
-bird_down = pygame.transform.scale2x(pygame.image.load('game1/assets/yellowbird-downflap.png').convert_alpha())
-bird_mid = pygame.transform.scale2x(pygame.image.load('game1/assets/yellowbird-midflap.png').convert_alpha())
-bird_up = pygame.transform.scale2x(pygame.image.load('game1/assets/yellowbird-upflap.png').convert_alpha())
+bird_down = pygame.transform.scale2x(pygame.image.load('assets/yellowbird-downflap.png').convert_alpha())
+bird_mid = pygame.transform.scale2x(pygame.image.load('assets/yellowbird-midflap.png').convert_alpha())
+bird_up = pygame.transform.scale2x(pygame.image.load('assets/yellowbird-upflap.png').convert_alpha())
 bird_list= [bird_down,bird_mid,bird_up] #0 1 2
 bird_index = 0
 bird = bird_list[bird_index]
@@ -86,7 +86,7 @@ bird_rect = bird.get_rect(center = (100,384))
 birdflap = pygame.USEREVENT + 1
 pygame.time.set_timer(birdflap,200)
 #tạo ống
-pipe_surface = pygame.image.load('game1/assets/pipe-green.png').convert()
+pipe_surface = pygame.image.load('assets/pipe-green.png').convert()
 pipe_surface = pygame.transform.scale2x(pipe_surface)
 pipe_list =[]
 pipe_passed = []#một danh sách mới để theo dõi các ống đã vượt qua
@@ -95,12 +95,12 @@ spawnpipe= pygame.USEREVENT
 pygame.time.set_timer(spawnpipe, 1200)
 pipe_height = [350,400,500]
 #Tạo màn hình kết thúc
-game_over_surface = pygame.transform.scale2x(pygame.image.load('game1/assets/message.png').convert_alpha())
+game_over_surface = pygame.transform.scale2x(pygame.image.load('assets/message.png').convert_alpha())
 game_over_rect = game_over_surface.get_rect(center=(216,384))
 #Chèn âm thanh
-flap_sound = pygame.mixer.Sound('game1/sound/sfx_wing.wav')
-hit_sound = pygame.mixer.Sound('game1/sound/sfx_hit.wav')
-score_sound = pygame.mixer.Sound('game1/sound/sfx_point.wav')
+flap_sound = pygame.mixer.Sound('sound/sfx_wing.wav')
+hit_sound = pygame.mixer.Sound('sound/sfx_hit.wav')
+score_sound = pygame.mixer.Sound('sound/sfx_point.wav')
 score_sound_countdown = 100
 #while loop của trò chơi
 while True:
